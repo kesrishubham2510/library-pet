@@ -44,8 +44,8 @@ dependencyManagement {
     }
 }
 
+// to publish the artifact to the nexus-server
 publishing {
-
     publications {
         maven(MavenPublication) {
             group "${versions.group}"
@@ -55,6 +55,7 @@ publishing {
 
     repositories {
         maven {
+        // to fetch the properties from the gradle.properties file
         name property('nexusRepoIdentifier')
         url  property('nexusURL')
         allowInsecureProtocol true
