@@ -23,8 +23,15 @@ WORKDIR /home/developer
 # clone the repo from github
 RUN git clone https://github.com/kesrishubham2510/library-pet.git
 
+
 # navigate to the library-pet and execute the build
 WORKDIR ./library-pet
+
+RUN git pull
+
+# change to branch dockerization
+RUN git checkout dockerization
+
 RUN ./gradlew build
 
 # change workDir and add user
