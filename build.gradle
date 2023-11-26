@@ -67,3 +67,6 @@ publishing {
   }
 }
 
+tasks.named("publishMavenPublicationToNexus-localRepository") {
+    dependsOn(tasks.named("jar"))
+}
