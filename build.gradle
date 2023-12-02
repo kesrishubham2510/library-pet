@@ -3,6 +3,7 @@ plugins {
     id 'org.springframework.boot' version '3.1.4' apply false
     id 'io.spring.dependency-management' version '1.1.3'
     id 'maven-publish'
+    id "org.sonarqube" version "4.4.1.3373"
 }
 
 ext.versions = [
@@ -67,6 +68,19 @@ publishing {
   }
 }
 
+sonar {
+    properties {
+        property 'sonar.projectKey' , 'library-pet'
+        property 'sonar.projectName' , 'library-pet'
+        property 'sonar.host.url' , 'http://sonarqube:9000'
+        property 'sonar.token','sqp_7663817f781ff0a5aac05f9295e2792b3cf1fc9e'
+    }
+}
+
 tasks.named("publishMavenPublicationToNexus-localRepository") {
+    dependsOn(tasks.named("jar"))
+}
+
+tasks.named("sonarqube"){
     dependsOn(tasks.named("jar"))
 }
