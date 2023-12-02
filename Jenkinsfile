@@ -21,6 +21,12 @@ pipeline{
         }
      }
 
+     stage('Sonar analysis'){
+        steps{
+            sh './gradlew sonar'
+        }
+     }
+
      stage('Publish'){
         steps{
             sh './gradlew publish'
