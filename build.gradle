@@ -73,7 +73,7 @@ sonar {
         property 'sonar.projectKey' , 'library-pet'
         property 'sonar.projectName' , 'library-pet'
         property 'sonar.host.url' , 'http://sonarqube:9000'
-        property 'sonar.token','sqp_7663817f781ff0a5aac05f9295e2792b3cf1fc9e'
+        property 'sonar.token','sqp_d9b0deca8aae1a1ac79e1ab5b1253d469278242b'
     }
 }
 
