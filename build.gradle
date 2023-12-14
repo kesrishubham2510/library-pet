@@ -70,10 +70,10 @@ publishing {
 
 sonar {
     properties {
-        property 'sonar.projectKey' , 'library-pet'
-        property 'sonar.projectName' , 'library-pet'
-        property 'sonar.host.url' , 'http://sonarqube:9000'
-        property 'sonar.token','sqp_19ccd56208f0f77bdb785e529aa15e9046815fd2'
+        property 'sonar.projectKey' , project.property('projectKey')
+        property 'sonar.projectName' , project.property('projectName')
+        property 'sonar.host.url' , project.property('sonarUrl')
+        property 'sonar.token', project.property('projectToken')
     }
 }
 
