@@ -69,6 +69,10 @@ publishing {
 }
 
 sonar {
+    /*
+         * the configuration phase allows access to project delegate
+         * accessing the constants from gradle.properties using Project object
+     */
     properties {
         property 'sonar.projectKey' , project.property('projectKey')
         property 'sonar.projectName' , project.property('projectName')
