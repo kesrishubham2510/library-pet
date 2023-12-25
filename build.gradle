@@ -10,7 +10,7 @@ ext.versions = [
         springBootVersion                : '3.1.4',
         springDependencyManagemnetVersion: '1.1.3',
         lombok                           : '1.18.26',
-        appVersion                       : '0.0.1',
+        appVersion                       : '0.0.2',
         group                            : 'com.myreflectionthoughts'
 ]
 
