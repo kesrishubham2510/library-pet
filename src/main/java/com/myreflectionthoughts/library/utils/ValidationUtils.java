@@ -1,6 +1,7 @@
 package com.myreflectionthoughts.library.utils;
 
 import com.myreflectionthoughts.library.exception.InputDataException;
+import com.myreflectionthoughts.library.exception.ParameterMissingException;
 
 import java.util.List;
 
@@ -42,5 +43,9 @@ public class ValidationUtils {
     public static void validatePetAge(double petAge){
         if(petAge<=0)
             throw new InputDataException("Age can't be zero or negative, Please provide a Valid age for your pet");
+    }
+
+    public static List<String> validationExceptions(){
+        return List.of(InputDataException.class.getSimpleName(), ParameterMissingException.class.getSimpleName());
     }
 }
