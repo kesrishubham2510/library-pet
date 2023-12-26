@@ -9,17 +9,19 @@ public class ValidationUtils {
 
     private final static List<String> emailDomains;
     public final static byte passwordLength;
-    public final  static byte ageThreshold;
+    public final  static byte masterAgeThreshold;
 
     static {
         emailDomains = List.of("gmail.com","facebook.com","yopmail.com");
         passwordLength = 6;
-        ageThreshold = 16;
+        masterAgeThreshold = 16;
 
     }
 
     public static void validateString(String value,String name){
-        if(value==null || value.trim().isEmpty())
+        if(null==value)
+            throw new ParameterMissingException(String.format("%s is required, it can't be null",name));
+        if(value.trim().isEmpty())
             throw new InputDataException(String.format("%s is required, it can't null or empty or whitespaces",name));
     }
 
@@ -36,8 +38,10 @@ public class ValidationUtils {
     }
 
     public static void validateAge(double age){
-        if(age<ageThreshold)
-            throw new InputDataException(String.format("Please provide a Valid age should be atleast %s years old",ageThreshold));
+        if(age<=0)
+            throw new InputDataException("Age can't be zero or negative, Please provide a valid age");
+        if(age< masterAgeThreshold)
+            throw new InputDataException(String.format("Please provide a valid age, it should be atleast %s years old", masterAgeThreshold));
     }
 
     public static void validatePetAge(double petAge){
